@@ -1,54 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
-<link rel="stylesheet" href="css/responsive.css">
+	<title>Simple Drawing Application</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-	<h2>Michigan State University Chapter</h2>
-	<nav>
+	<canvas	width="600" height="400"></canvas>
+	<div class="controls">
 		<ul>
-			<li class="selected"><a href="index.html">Home</a></li>
-			<li><a href="members.html">Members</a></li>
-			<li><a href="documents.html">Documents</a></li>
-			<li><a href="photos.html">Photos</a></li>
-			<li><a href="recruitement.html">Recruitment</a></li>
-			<li><a href="news.html">News</a></li>
-			<li><a href="about_us.html">About Us</a></li>
+			<li class="red selected"></li>
+			<li class="blue"></li>
+			<li class="yellow"></li>
 		</ul>
-	</nav>
-	<div id="wrapper">
-			<section>
-				<ul id="gallery">
-					<li>
-						<a href="http://www.msutriangle.org/imgs/SlideshowPictures/InitationRewards.jpg">
-							<img src="http://www.msutriangle.org/imgs/SlideshowPictures/InitationRewards.jpg" alt="initiation awards">
-						</a>
-					</li>
-					<li>
-						<a href="http://www.msutriangle.org/imgs/SlideshowPictures/RelayFloor.jpg">
-							<img src="http://www.msutriangle.org/imgs/SlideshowPictures/RelayFloor.jpg" >
-						</a>
-					</li>
-					<li>
-						<a href="http://www.msutriangle.org/imgs/SlideshowPictures/S14init.jpg">
-							<img src="http://www.msutriangle.org/imgs/SlideshowPictures/S14init.jpg" >
-						</a>
-					</li>
-					<li>
-						<a href="http://www.msutriangle.org/imgs/SlideshowPictures/WalkoutCini.jpg">
-							<img src="http://www.msutriangle.org/imgs/SlideshowPictures/WalkoutCini.jpg" >
-						</a>
-					</li>
-				</ul>	
-			</section>
-		<footer>
-			<a href="http://facebook.com//josh.benner.1"><img src="Pictures/facebook-wrap.png" alt="facebook"></a>
-			<a href="http://twitter.com/jbenner62"><img src="Pictures/twitter-wrap.png" alt="twitter"></a>
-			<p>&copy; 2014 Josh Benner.</p>
-		</footer>
+		<button id="revealColorSelect">New Color</button>
+		<div id="colorSelect">
+			<span id="new         Color"></span>
+			<div class="sliders">
+				<p>
+					<label for="red">Red</label>
+					<input id="red" name="red" type="range" min=0 max=255 value=0>
+				</p>
+				<p>
+					<label for="green">Green</label>
+					<input id="green" name="green" type="range" min=0 max=255 value=0>
+				</p>
+				<p>
+					<label for="blue">Blue</label>
+					<input id="blue" name="blue" type="range" min=0 max=255 value=0>
+				</p>
+			</div>
+			<div>
+			<button id="addNewColor">Add Color</button>
+			</div>
+		</div>
 	</div>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/app.js"                                                                                                                 type="text/javascript" charset="utf-8"></script>	
 </body>
 </html>

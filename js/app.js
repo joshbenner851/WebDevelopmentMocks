@@ -1,37 +1,76 @@
-//Problem: it looks gross in mobile screens
-//Solution: To hide the text links and swap them with a more appropiate navigation-select box
+//Problem: No user interaction causes no change to application
+//Solution: When user interacts cause changes appropriately
 
-//Create a select and append to menu
-var $select = $("<select></select>");
-$("nav").append($select);
-//cycle over menu links
-$("nav a").each( function() {
-  var $anchor = $(this);
-  //create an option
-  var $option = $("<option></option>");
-  
-   //deal with selected options depending on current page
-  if( $anchor.parent().hasClass("selected") ) {
-  	$option.prop("selected",true);
-  }
-    //option value is 
-  $option.val( $anchor.attr("href") );
-  
-  //options is the text of the link
-  $option.text( $anchor.text() );
- 
-  //append option to select
-  $select.append($option);
-  
+var color = $(".selected").css("background-color");
+var $canvas = $("canvas");
+var context = $canvas[0].getContext("2d");
+var lastEvent;
+var mousedown = false;
+//when clicking on control list items
+$(".controls").on("click", "li",function () {
+	
+	//deselect sibling elements
+	$(this).siblings().removeClass("selected");
+	//select clicked elements
+	$(this).addClass("selected");
+	//cache color here
+	color = $(this).css("background-color");
 });
-//   for the select box of href
-  
-//Create button to click to go to select location
-
-//bind click to btn
-$select.change(function(){
-  window.location = $select.val();
+	
+//when add color is pressed
+$("#revealColorSelect").click(function () {
+	//show color select or hide the select
+	changeColor();
+	$("#colorSelect").toggle();
 });
 
+function changeColor() {
+	var r = $("#red").val();
+	var g = $("#green").val();
+	var b = $("#blue").val();
+	$("#newColor").css("background-color","rgb(" + r + "," + g + ", " + b + ")");
+}
+
+//when color sliders change
+	$("input[type=range]").change(changeColor);
+	//update the new color span
+
+
+//when new color is pressed 
+$("#addNewColor").click(function() {
+	var $newColor = $("<li></li>");
+	$newColor.css("background-color",$(newColor).css("background-color"));
+
+	//append to list
+	$(".controls ul").append($newColor);
+	//select the new color
+
+	$newColor.click();
+
+
+
+});
+	
+//on mouse events on the canvas
+	//draw lines
+$canvas.mousedown(function(e){
+	lastEvent = e
+	mousedown = true;
+	}).mousemove(function(e){
+		if(mousedown)
+		{
+		context.beginPath();
+		context.moveTo(lastEvent.offsetX, lastEvent.offsetY);
+		context.strokeStyle = color;
+		context.lineTo(e.offsetX,e.offsetY);
+		context.stroke();
+		lastEvent = e;
+		}
+
+	}).mouseup(function(){
+		mousedown = false;
+	});
+
+	context.stroke();
 
 
