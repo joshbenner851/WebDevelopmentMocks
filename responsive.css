@@ -1,0 +1,43 @@
+@media screen and (min-width: 480px){
+	
+	/**************************
+	TWO COLUMN LAYOUT
+	***************************/
+
+	#primary {
+		width: 50%;
+		float: left;
+
+	}
+
+	#seconday {
+		width: 40%;
+		float: right;
+	}
+
+	/**************************
+	3*5 = 15% 
+	85% = images
+	85/3 = 28.333333333
+	***************************/
+
+	/**************************
+	THREE COLUMN LAYOUT
+	***************************/
+
+	#gallery li {
+		width: 28.333333%
+
+	}
+
+	#gallery li:nth-child(4n) {
+		clear: left;
+	}
+
+
+
+}
+
+@media screen and (min-width: 660px){
+
+}
